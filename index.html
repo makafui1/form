@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MultiStep Contact Form With Ajax Submit</title>
+<!--
+Color Combination
+https://drive.google.com/a/elsner.in/file/d/0Byc_e_Ief8vROUNXeVJNWFZ0UWM/view?usp=drivesdk
+-->
+<link rel="stylesheet" type="text/css" href="assets/css/mutli-step.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script src="assets/js/mutli-step.js"></script>
+
+<!--[if IE]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<h2>MultiStep Form with Front / Server Side Validation (Optional) and Ajax Submit</h2>
+
+<form id="multi-step-form" method="post" name="multi-step-form" action="includes/ajax_submit.php">
+
+  <!-- Loader on Submit Start Here --> 	
+  	<div class="loader">
+        <div class="loader-img"></div>
+    </div>
+  <!-- Loader on Submit End Here --> 	
+
+  <!-- Progress Bar Start Here -->
+  <ul id="progressbar">
+    <li class="active">your Profile Data</li>
+    <li>Social Links</li>
+    <li>Create Your Credentials</li>
+  </ul>
+
+  <div id="message"></div>
+  <!-- Progress Bar End Here -->
+
+  <!-- Multistep FieldSet Start Here -->
+  	
+  	<!-- Multistep STEP 1 Start Here -->
+	  <fieldset>
+	  	<mark class="validate"></mark>
+	    <h2 class="step-title">your Profile Data</h2>
+	    <h3 class="step-subtitle">Fill up profile information</h3>
+	    <input type="text" name="fname"  placeholder="First Name" />
+	    <input type="text" name="lname" class="step_required" placeholder="Last Name" />
+	    <input type="text" name="emailaddress" class="step_required" placeholder="Email Address"/>
+	    <input type="tel" name="phone" placeholder="Phone" />
+	    <textarea name="address" class="step_required" placeholder="Address"></textarea>
+	    <input type="button" name="next_step" class="next action-button" value="Next" />
+	  </fieldset>
+  	<!-- Multistep STEP 1 End Here -->
+
+  	<!-- Multistep STEP 2 Start Here -->
+	  <fieldset>
+	    <h2 class="step-title">Social Links</h2>
+	    <h3 class="step-subtitle">Your social url</h3>
+	    <input type="text" name="twitter" placeholder="Twitter" />
+	    <input type="text" name="facebook" placeholder="Facebook" />
+	    <input type="text" name="linkedin" placeholder="LinkedIn" />
+	    <input type="text" name="gplus" placeholder="Google Plus" />
+	    <input type="button" name="previous" class="previous action-button" value="Previous" />
+	    <input type="button" name="next_step" class="next action-button" value="Next" />
+	  </fieldset>
+	<!-- Multistep STEP 2 End Here -->
+	  
+	<!-- Multistep STEP 3 Start Here -->  
+	  <fieldset>
+	    <h2 class="step-title">Create Your Credentials</h2>
+	    <h3 class="step-subtitle">Please fill up below details to create your account</h3>
+	    <input type="text" name="username" placeholder="Username" />
+	    <input type="password" name="password" id="password" placeholder="Password" />
+	    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" />
+	    <input type="button" name="previous" class="previous action-button" value="Previous" />
+	    <input type="submit" name="submit" id="submit" class="submit action-button" value="Submit" />
+	  </fieldset>
+  <!-- Multistep STEP 3 Start Here -->
+
+  <!-- Multistep FieldSet End Start Here -->
+</form>
+
+</body>
+</html>

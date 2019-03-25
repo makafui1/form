@@ -1,0 +1,234 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+* {margin: 0; padding: 0;}
+
+html {
+	height: 100%;
+    background: #FFB85F; /* For browsers that do not support gradients */
+  	background: -webkit-linear-gradient(left, #FFB85F , #FF7A5A); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(right, #FFB85F, #FF7A5A); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(right, #FFB85F, #FF7A5A); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(to right, #FFB85F , #FF7A5A); /* Standard syntax */
+}
+
+body {
+	font-family: montserrat, arial, verdana;
+}
+
+h2{
+    text-align: -webkit-center;
+    text-transform: uppercase;
+    color: #462066;
+    padding: 4% 5% 0% 5%;
+    font-size: 22px;
+
+}
+/*Loader CSS Start Here*/
+.loader {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+.loader-img {
+    border: 12px solid #fcf4d9;
+    border-top: 12px solid #00aaa0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: loader 1.5s linear infinite;
+    -moz-animation: loader 1.5s linear infinite;
+    -o-animation: loader 1.5s linear infinite;
+    animation: loader 1.5s linear infinite;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    -webkit-transform: translate(50%,50%);
+    -moz-transform: translate(50%,50%);
+    -ms-transform: translate(50%,50%);
+    -o-transform: translate(50%,50%);
+    transform: translate(50%,50%);
+}
+@keyframes loader {
+    0% { 
+      -webkit-transform: rotate(0deg);
+      -moz-transform:    rotate(0deg);
+      -ms-transform:     rotate(0deg);
+      -o-transform:      rotate(0deg);
+      transform: rotate(0deg); 
+    }
+    100% { 
+      -webkit-transform: rotate(360deg);
+      -moz-transform:    rotate(360deg);
+      -ms-transform:     rotate(360deg);
+      -o-transform:      rotate(360deg);
+      transform: rotate(360deg); 
+    }
+}
+/*Loader CSS End Here*/
+
+/*Multi Step Form Start Here*/
+#multi-step-form {
+	width: 80%;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+}
+#multi-step-form fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#multi-step-form fieldset:not(:first-of-type) {
+	display: none;
+}
+/*imputs error border*/
+#multi-step-form input.step_required.error, #multi-step-form textarea.step_required.error{
+	border: 2px solid #ff7a5a;
+}
+
+/*inputs*/
+#multi-step-form input, #multi-step-form textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #00AAA0;
+	font-size: 13px;
+}
+/*buttons*/
+#multi-step-form .action-button {
+	width: 100px;
+	background: #462066;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#multi-step-form .action-button:hover, #multi-step-form .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #462066;
+}
+/*CSS for Title*/
+.step-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #00AAA0;
+	margin-bottom: 10px;
+}
+.step-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #FF7A5A;
+	margin-bottom: 20px;
+}
+
+/*CSS for Progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	color: #462066;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*CSS for progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #462066;
+	color: white;
+}
+
+
+/* The alert message box */
+
+#multi-step-form #message{
+	margin:0 10%;
+} 
+
+.alert {
+    padding: 10px;
+    background-color: #ff7b5a;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
+/*.validate{
+	float: right;
+	clear: both;
+	margin-bottom: 0px;
+	color: #FF7A5A;
+	font-size: 15px;
+	position: absolute;
+	right: 40px;
+	margin-top: 13px;	
+	background-image: url('assets/img/warning.png'); 
+}*/
